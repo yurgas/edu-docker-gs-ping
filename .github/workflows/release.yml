@@ -34,6 +34,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
+          file: ./Dockerfile.multistage
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}:latest,${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}:${{ github.ref_name }}
 
       - name: Image digest
